@@ -1,0 +1,17 @@
+<template>
+   <lightning-record-edit-form object-api-name="OpportunityLineItem" onsuccess={handleSuccess}>
+      <lightning-messages></lightning-messages>
+      <div class="slds-m-around_medium">
+         <lightning-input-field field-name="Id" value={oli_id}></lightning-input-field>
+
+         <lightning-input-field field-name="OpportunityId" value={oppid}></lightning-input-field>
+         <lightning-input-field field-name="Product2Id"></lightning-input-field>
+         <lightning-input-field field-name="Quantity"></lightning-input-field>
+         <lightning-input-field field-name="UnitPrice"></lightning-input-field>
+         <div class="slds-m-top_medium">
+            <lightning-button name="cancel" label="Cancel" onclick={handleCancel}> </lightning-button>
+            <lightning-button variant="brand" type="submit" name="save" label="Save New OLI" class="slds-p-horizontal_medium"> </lightning-button>
+         </div>
+      </div>
+   </lightning-record-edit-form>
+</template>

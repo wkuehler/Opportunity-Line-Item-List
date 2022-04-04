@@ -1,0 +1,22 @@
+<template>
+   <lightning-card>
+      <h3 slot="title">
+         <lightning-icon icon-name="utility:connected_apps" size="small"></lightning-icon>
+         Opp Line Item Display
+      </h3>
+      <div slot="footer">
+         <lightning-button variant="brand" label="Debug" onclick={runDebugger} class="slds-m-left_x-small"></lightning-button>
+         <lightning-button variant="brand" label="Add New" onclick={addNew} class="slds-m-left_x-small"></lightning-button>
+      </div>
+
+      <template if:false={addingnew}>
+         <template if:true={opplineitems.data}>
+            <lightning-datatable key-field="Id" data={opplineitems.data} show-row-number-column columns={columns} onsave={handleSave} draft-values={draftValues}> </lightning-datatable>
+         </template>
+      </template>
+
+      <template if:true={addingnew}>
+         <c-add-new-opp-line-item oppid={recordId} onaddnewolisuccess={handleaddnewolisuccess} onaddnewolicancel={handleaddnewolicancel}></c-add-new-opp-line-item>
+      </template>
+   </lightning-card>
+</template>
